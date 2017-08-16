@@ -2,7 +2,7 @@
 # pylint: disable=E0611
 # Requires Nitro PYTHON API
 # Download from the download section in the VPX GUI
-# Query and print all SSL vserver cipher suite configurationsqui
+# Query and print all SSL vserver cipher suite configurations
 # Written by Nate Stewart. Date: 07/25/17
 
 import argparse
