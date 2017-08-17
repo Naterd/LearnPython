@@ -25,15 +25,15 @@ ARGS = PARSER.parse_args()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # login to netscaler
-NS_SESSION = nitro_service(ARGS.netscaler, "https")
+NS_SESSION = nitro_service(ARGS.netscaler, 'https')
 NS_SESSION.certvalidation = False
 NS_SESSION.hostnameverification = False
 NS_SESSION.login(ARGS.username, ARGS.password, 3600)
 
 
 # Find all SSL virtual servers for load balancing and content switching
-LBRESULT = lbvserver.get_filtered(NS_SESSION, "servicetype:SSL")
-CSRESULT = csvserver.get_filtered(NS_SESSION, "servicetype:SSL")
+LBRESULT = lbvserver.get_filtered(NS_SESSION, 'servicetype:SSL')
+CSRESULT = csvserver.get_filtered(NS_SESSION, 'servicetype:SSL')
 for vserver in LBRESULT:
     print vserver.name
     # query ciphers for each vserver
