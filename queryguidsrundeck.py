@@ -16,7 +16,6 @@ PARSER.add_argument('--apitoken', dest='token', type=str, required=True,
                     help='rundeck api token')
 ARGS = PARSER.parse_args()
 
-RUNDECKURL = 'https://switchyard01.xactware.com/rundeck/api/1/projects'
 MYTOKEN = ARGS.token
 
 def queryapi(url, token):
@@ -33,6 +32,7 @@ def queryapi(url, token):
     bodyjson = json.loads(body)
     return bodyjson
 
+RUNDECKURL = 'https://switchyard01.xactware.com/rundeck/api/1/projects'
 PROJECTS = queryapi(RUNDECKURL, MYTOKEN)
 
 for project in PROJECTS:
